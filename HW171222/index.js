@@ -13,7 +13,7 @@ function quickSort(array) {
 		return array
 }
 	let pivotIndex = Math.floor(array.length * Math.random());
-  console.log(pivotIndex);
+  // console.log(pivotIndex);
 	let pivot = array[pivotIndex]
 let less = [];
 let greater = [];
@@ -47,25 +47,27 @@ console.log(count);
 // arr = ["mirror", "nothing"]
 // prefix = ""          
 
-// let strA = "return";
-// let strB = "retard";
-// let strC = "reunion";
-// let strD = "rest";
 
-let strA = "cheer";
-let strB = "cheerful";
-let strC = "cheese";
+// let arrayStr = ["return", "retard", "reunion", "rest"]
+let arrayStr = ["cheer", "cheerful", "cheese"]
+// let arrayStr = ["mirror", "nothing"]
 
+let mLength = (arrayStr.map(item => item.length)).sort((x, y) => {return x-y})[0];
 let prefix = [];
 
-let array = [strA, strB, strC];
-let minLength = (array.map(item => item.length)).sort((x, y) => {return x-y})[0];
+for(let i = 0; i < mLength; i++){
+	let letter = arrayStr[0][i]
+	let countx = 0;
+	for(let j=0; j < arrayStr.length; j++){
+		if (arrayStr[j][i] == letter) {
 
-for (i =0; i< minLength; i++){
-  if (strB[i] == strA[i] && strC[i] == strA[i]){
-  prefix.push(strA[i]);
-  } else break
+			countx ++;
+			if (countx == arrayStr.length) {
+				prefix.push(letter);
+			}
+			
+		} else break
+	}
 }
 
-console.log(array);
 console.log(prefix);
